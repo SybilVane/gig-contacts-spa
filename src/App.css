@@ -1,0 +1,24 @@
+.app__container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    color: var(--dark-blue);
+    padding: 2rem;
+    height: 100%;
+}
+
+.app__header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.app__header-img {
+    width: 6rem;
+    height: auto;
+}
+
+.app__header-title {
+    font-size: 2rem;
+    font-weight: 200;
+}

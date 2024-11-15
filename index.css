@@ -1,0 +1,42 @@
+:root {
+    --dark-blue: #080E2D;
+    --medium-purple: #7136C4;
+    --turquoise-alpha: rgba(87, 229, 202, 0.6);
+    --turquoise: #57E5CA;
+    --white: #ffffff;
+    --font-size: 1.3rem;
+    --sans: Inter;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100dvh;
+    line-height: 1;
+    font-family: var(--sans), sans-serif;
+    font-size: var(--font-size);
+    background-color: var(--dark-blue);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    margin: 0;
+}
