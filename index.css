@@ -1,8 +1,8 @@
 :root {
     --dark-blue: #080E2D;
     --medium-purple: #7136C4;
-    --turquoise-alpha: rgba(87, 229, 202, 0.6);
     --turquoise: #57E5CA;
+    --turquoise-alpha: rgba(87, 229, 202, 0.6);
     --white: #ffffff;
     --font-size: 1.3rem;
     --sans: Inter;

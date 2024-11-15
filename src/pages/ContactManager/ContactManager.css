@@ -1,0 +1,9 @@
+.contact-manager {
+    height: 100%;
+}
+
+.contact-manager__title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
