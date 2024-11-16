@@ -1,6 +1,7 @@
 import React from "react";
 import "./ContactViewer.css";
 import { Contact } from "../../types/Contact.ts";
+import ContactItem from "../../components/ContactItem/ContactItem.tsx";
 
 interface ContactViewerProps {
   contacts: Contact[];
@@ -18,10 +19,7 @@ const ContactViewer: React.FC<ContactViewerProps> = ({ contacts }) => {
       ) : (
         <ul>
           {contacts.map((contact) => (
-            <li key={contact.id}>
-              {contact.firstName} {contact.lastName} - {contact.email} (
-              {contact.country})
-            </li>
+            <ContactItem contact={contact} key={contact.id} />
           ))}
         </ul>
       )}

@@ -3,6 +3,7 @@ import "./ContactManager.css";
 import { Contact } from "../../types/Contact.ts";
 import ContactForm from "../components/ContactForm/ContactForm.tsx";
 import DefaultButton from "../../components/DefaultButton/DefaultButton.tsx";
+import ContactItem from "../../components/ContactItem/ContactItem.tsx";
 
 interface ContactManagerProps {
   contacts: Contact[];
@@ -66,9 +67,7 @@ const ContactManager: React.FC<ContactManagerProps> = ({
           ) : (
             <ul>
               {contacts.map((contact) => (
-                <li key={contact.id}>
-                  {contact.firstName} {contact.lastName} ({contact.country}){" "}
-                  {contact.email}
+                <ContactItem contact={contact} key={contact.id}>
                   <DefaultButton onClick={() => handleEditContact(contact.id)}>
                     Edit
                   </DefaultButton>
@@ -77,7 +76,7 @@ const ContactManager: React.FC<ContactManagerProps> = ({
                   >
                     Delete
                   </DefaultButton>
-                </li>
+                </ContactItem>
               ))}
             </ul>
           )}
