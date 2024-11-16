@@ -5,9 +5,13 @@ import { Link, Route, Routes } from "react-router-dom";
 import ContactViewer from "./pages/ContactViewer/ContactViewer.tsx";
 import ContactManager from "./pages/ContactManager/ContactManager.tsx";
 import { Contact } from "./types/Contact.ts";
+import { loadItemFromLocalStorage } from "./utils/storage.ts";
+import { CONTACTS_STORAGE_KEY } from "./utils/const.ts";
 
 const App: React.FC = () => {
-  const [contacts, setContacts] = useState<Contact[]>([]);
+  const [contacts, setContacts] = useState<Contact[]>(
+    loadItemFromLocalStorage(CONTACTS_STORAGE_KEY) || [],
+  );
 
   return (
     <div className="app">

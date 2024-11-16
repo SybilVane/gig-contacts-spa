@@ -4,6 +4,8 @@ import { Contact } from "../../types/Contact.ts";
 import ContactForm from "../components/ContactForm/ContactForm.tsx";
 import DefaultButton from "../../components/DefaultButton/DefaultButton.tsx";
 import ContactItem from "../../components/ContactItem/ContactItem.tsx";
+import { saveItemInLocalStorage } from "../../utils/storage.ts";
+import { CONTACTS_STORAGE_KEY } from "../../utils/const.ts";
 
 interface ContactManagerProps {
   contacts: Contact[];
@@ -30,6 +32,7 @@ const ContactManager: React.FC<ContactManagerProps> = ({
     const updatedContacts = contacts.some((el) => el.id === contact.id)
       ? contacts.map((el) => (el.id === contact.id ? contact : el))
       : [...contacts, contact];
+    saveItemInLocalStorage<Contact[]>(CONTACTS_STORAGE_KEY, updatedContacts);
     setContacts(updatedContacts);
     setEditingContact(null);
   };
@@ -41,6 +44,7 @@ const ContactManager: React.FC<ContactManagerProps> = ({
 
   const handleDeleteContact = (id: string): void => {
     const updatedContacts = contacts.filter((el) => el.id !== id);
+    saveItemInLocalStorage<Contact[]>(CONTACTS_STORAGE_KEY, updatedContacts);
     setContacts(updatedContacts);
   };
 
