@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Contact } from "../../../types/Contact.ts";
+import { getCode, getNames } from "country-list";
 import ContactFormField from "./components/ContactFormField/ContactFormField.tsx";
 import DefaultButton from "../../../components/DefaultButton/DefaultButton.tsx";
 import "./ContactForm.css";
@@ -19,6 +20,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
+
+  const countryList = getNames();
+  const orderedList = countryList.sort((a: string, b: string) =>
+    a.localeCompare(b),
+  );
+  const countryOptions = orderedList.map(
+    (countryName: string): { label: string; value: string } => ({
+      value: getCode(countryName) || "",
+      label: countryName,
+    }),
+  );
 
   useEffect(() => {
     setFirstName(contact.firstName);
@@ -48,11 +60,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         value={country}
         onChange={(e) => setCountry(e.target.value)}
         required
-        options={[
-          { value: "Spain", label: "Spain" },
-          { value: "Greece", label: "Greece" },
-          { value: "Portugal", label: "Portugal" },
-        ]}
+        options={countryOptions}
       />
       <ContactFormField
         label="First Name"
