@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Contact } from "../../../types/Contact.ts";
+import "./ContactForm.css";
+import DefaultButton from "../../../components/DefaultButton/DefaultButton.tsx";
 
 interface ContactFormProps {
   contact: Contact;
@@ -22,7 +24,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
     setLastName(contact.lastName);
     setEmail(contact.email);
     setCountry(contact.country);
-  }, []);
+  }, [contact]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -76,11 +78,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
         onChange={(e) => setEmail(e.target.value)}
         required
       />
-      <div>
-        <button type="submit">Save</button>
-        <button type="button" onClick={onCancel}>
+      <div className="contact-form__actions">
+        <DefaultButton type="submit">Save</DefaultButton>
+        <DefaultButton type="button" onClick={onCancel}>
           Cancel
-        </button>
+        </DefaultButton>
       </div>
     </form>
   );

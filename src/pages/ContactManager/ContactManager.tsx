@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ContactManager.css";
 import { Contact } from "../../types/Contact.ts";
 import ContactForm from "../components/ContactForm/ContactForm.tsx";
+import DefaultButton from "../../components/DefaultButton/DefaultButton.tsx";
 
 interface ContactManagerProps {
   contacts: Contact[];
@@ -50,7 +51,7 @@ const ContactManager: React.FC<ContactManagerProps> = ({
     <div className="contact-manager">
       <div className="contact-manager__header">
         <h1 className="contact-manager__title">Contact Manager</h1>
-        <button onClick={handleAddContact}>Add contact</button>
+        <DefaultButton onClick={handleAddContact}>Add contact</DefaultButton>
       </div>
       {editingContact ? (
         <ContactForm
@@ -66,14 +67,16 @@ const ContactManager: React.FC<ContactManagerProps> = ({
             <ul>
               {contacts.map((contact) => (
                 <li key={contact.id}>
-                  {contact.firstName} {contact.lastName} - {contact.email} (
-                  {contact.country})
-                  <button onClick={() => handleEditContact(contact.id)}>
-                    Edit contact
-                  </button>
-                  <button onClick={() => handleDeleteContact(contact.id)}>
-                    Delete contact
-                  </button>
+                  {contact.firstName} {contact.lastName} ({contact.country}){" "}
+                  {contact.email}
+                  <DefaultButton onClick={() => handleEditContact(contact.id)}>
+                    Edit
+                  </DefaultButton>
+                  <DefaultButton
+                    onClick={() => handleDeleteContact(contact.id)}
+                  >
+                    Delete
+                  </DefaultButton>
                 </li>
               ))}
             </ul>

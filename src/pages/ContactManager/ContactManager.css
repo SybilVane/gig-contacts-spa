@@ -2,6 +2,12 @@
     height: 100%;
 }
 
+.contact-manager__header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
 .contact-manager__title {
     font-size: 2rem;
     font-weight: 500;

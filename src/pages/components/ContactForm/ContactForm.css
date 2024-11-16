@@ -1,0 +1,11 @@
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form__actions {
+    align-self: center;
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.5rem;
+}
