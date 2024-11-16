@@ -34,7 +34,7 @@ const ContactManager: React.FC<ContactManagerProps> = ({
 
   const handleEditContact = (id: string): void => {
     const contact = contacts.find((el) => el.id === id);
-    contact && setEditingContact(contact);
+    if (contact) setEditingContact(contact);
   };
 
   const handleDeleteContact = (id: string): void => {
