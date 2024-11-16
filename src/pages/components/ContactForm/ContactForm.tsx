@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Contact } from "../../../types/Contact.ts";
-import "./ContactForm.css";
+import ContactFormField from "./components/ContactFormField/ContactFormField.tsx";
 import DefaultButton from "../../../components/DefaultButton/DefaultButton.tsx";
+import "./ContactForm.css";
 
 interface ContactFormProps {
   contact: Contact;
@@ -40,40 +41,39 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
   return (
     <form onSubmit={handleSubmit} className="contact-form">
-      <label htmlFor="country">Country:</label>
-      <select
+      <ContactFormField
+        label="Country"
         id="country"
+        type="select"
         value={country}
         onChange={(e) => setCountry(e.target.value)}
         required
-      >
-        <option value="">Select a country</option>
-        {["Spain", "Greece", "Portugal"].map((country: string) => (
-          <option key={country} value={country}>
-            {country}
-          </option>
-        ))}
-      </select>
-      <label htmlFor="first-name">First Name:</label>
-      <input
-        type="text"
+        options={[
+          { value: "Spain", label: "Spain" },
+          { value: "Greece", label: "Greece" },
+          { value: "Portugal", label: "Portugal" },
+        ]}
+      />
+      <ContactFormField
+        label="First Name"
         id="first-name"
+        type="input"
         value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
         required
       />
-      <label htmlFor="last-name">Last Name:</label>
-      <input
-        type="text"
+      <ContactFormField
+        label="Last Name"
         id="last-name"
+        type="input"
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
         required
       />
-      <label htmlFor="email">Email:</label>
-      <input
-        type="text"
+      <ContactFormField
+        label="Email"
         id="email"
+        type="input"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
