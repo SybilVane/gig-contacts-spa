@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Contact } from "../../../types/Contact.ts";
-import { getCode, getNames } from "country-list";
+import { getCode, getName, getNames } from "country-list";
 import ContactFormField from "./components/ContactFormField/ContactFormField.tsx";
 import DefaultButton from "../../../components/DefaultButton/DefaultButton.tsx";
 import "./ContactForm.css";
+import { validateFields } from "./validateFields.ts";
 
 interface ContactFormProps {
   contact: Contact;
@@ -20,6 +21,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const countryList = getNames();
   const orderedList = countryList.sort((a: string, b: string) =>
@@ -39,16 +41,27 @@ const ContactForm: React.FC<ContactFormProps> = ({
     setCountry(contact.country);
   }, [contact]);
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
     const contactToBeSubmitted: Contact = {
       id: contact?.id ? contact.id : Date.now().toString(),
       firstName,
       lastName,
       email,
-      country,
+      country: getName(country) || "",
     };
-    onSave(contactToBeSubmitted);
+
+    const validationResult = validateFields(
+      contactToBeSubmitted.firstName,
+      contactToBeSubmitted.lastName,
+      contactToBeSubmitted.email,
+    );
+    
+    if (Object.entries(validationResult).length) {
+      setErrors(validationResult);
+    } else {
+      onSave(contactToBeSubmitted);
+    }
   };
 
   return (
@@ -61,6 +74,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         onChange={(e) => setCountry(e.target.value)}
         required
         options={countryOptions}
+        error={errors.country}
       />
       <ContactFormField
         label="First Name"
@@ -69,6 +83,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
         required
+        error={errors.firstName}
       />
       <ContactFormField
         label="Last Name"
@@ -77,6 +92,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
         required
+        error={errors.lastName}
       />
       <ContactFormField
         label="Email"
@@ -85,6 +101,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
+        error={errors.email}
       />
       <div className="contact-form__actions">
         <DefaultButton type="submit">Save</DefaultButton>

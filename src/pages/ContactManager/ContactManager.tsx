@@ -6,6 +6,7 @@ import DefaultButton from "../../components/DefaultButton/DefaultButton.tsx";
 import ContactItem from "../../components/ContactItem/ContactItem.tsx";
 import { saveItemInLocalStorage } from "../../utils/storage.ts";
 import { CONTACTS_STORAGE_KEY } from "../../utils/const.ts";
+import { getCode } from "country-list";
 
 interface ContactManagerProps {
   contacts: Contact[];
@@ -39,7 +40,11 @@ const ContactManager: React.FC<ContactManagerProps> = ({
 
   const handleEditContact = (id: string): void => {
     const contact = contacts.find((el) => el.id === id);
-    if (contact) setEditingContact(contact);
+    if (contact)
+      setEditingContact({
+        ...contact,
+        country: getCode(contact.country) || "",
+      });
   };
 
   const handleDeleteContact = (id: string): void => {

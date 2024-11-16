@@ -16,6 +16,7 @@ interface ContactFormFieldProps {
   ) => void;
   required?: boolean;
   options?: OptionProps[];
+  error?: string;
 }
 
 const ContactFormField: React.FC<ContactFormFieldProps> = ({
@@ -26,12 +27,16 @@ const ContactFormField: React.FC<ContactFormFieldProps> = ({
   onChange,
   required = false,
   options = [],
+  error = "",
 }) => {
+  const inputClassName = error ? "contact-form-field__input--error" : "";
+
   return (
     <div className="contact-form-field">
       <label htmlFor={id}>{label}:</label>
       {type === "input" ? (
         <input
+          className={inputClassName}
           type="text"
           id={id}
           value={value}
@@ -48,6 +53,7 @@ const ContactFormField: React.FC<ContactFormFieldProps> = ({
           ))}
         </select>
       )}
+      <span className="contact-form-field__error">{error}</span>
     </div>
   );
 };
