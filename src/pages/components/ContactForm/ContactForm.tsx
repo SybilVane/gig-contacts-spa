@@ -51,12 +51,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
       country: getName(country) || "",
     };
 
-    const validationResult = validateFields(
+    const validationResult: { [key: string]: string } = validateFields(
       contactToBeSubmitted.firstName,
       contactToBeSubmitted.lastName,
       contactToBeSubmitted.email,
     );
-    
+
     if (Object.entries(validationResult).length) {
       setErrors(validationResult);
     } else {

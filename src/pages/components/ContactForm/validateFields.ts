@@ -2,7 +2,7 @@ export const validateFields = (
   firstName: string,
   lastName: string,
   email: string,
-): { [key: string]: string } | object => {
+): { [key: string]: string } => {
   const nameRegex = /^[a-zA-Z]{2,}$/;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 

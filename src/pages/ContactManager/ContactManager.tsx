@@ -5,7 +5,7 @@ import ContactForm from "../components/ContactForm/ContactForm.tsx";
 import DefaultButton from "../../components/DefaultButton/DefaultButton.tsx";
 import ContactItem from "../../components/ContactItem/ContactItem.tsx";
 import { saveItemInLocalStorage } from "../../utils/storage.ts";
-import { CONTACTS_STORAGE_KEY } from "../../utils/const.ts";
+import { CONTACTS_STORAGE_KEY } from "../../utils/constants.ts";
 import { getCode } from "country-list";
 
 interface ContactManagerProps {

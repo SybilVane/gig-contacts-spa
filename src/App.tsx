@@ -6,7 +6,7 @@ import ContactViewer from "./pages/ContactViewer/ContactViewer.tsx";
 import ContactManager from "./pages/ContactManager/ContactManager.tsx";
 import { Contact } from "./types/Contact.ts";
 import { loadItemFromLocalStorage } from "./utils/storage.ts";
-import { CONTACTS_STORAGE_KEY } from "./utils/const.ts";
+import { CONTACTS_STORAGE_KEY } from "./utils/constants.ts";
 
 const App: React.FC = () => {
   const [contacts, setContacts] = useState<Contact[]>(
@@ -17,8 +17,8 @@ const App: React.FC = () => {
     <div className="app">
       <article className="app__container">
         <header className="app__header">
-          <img src={logo} alt="Gig Contacts" className="app__header-img" />
-          <h1 className="app__header-title">Contacts</h1>
+          <img src={logo} alt="Gig logo" className="app__header-img" />
+          <title className="app__header-title">Contacts</title>
           <nav className="app__navigation">
             <Link to="/manager">Manage Contacts</Link>
             <Link to="/">View Contacts</Link>

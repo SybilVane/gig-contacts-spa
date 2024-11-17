@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import ContactManager from "./ContactManager";
-import { CONTACTS_STORAGE_KEY } from "../../utils/const";
+import { CONTACTS_STORAGE_KEY } from "../../utils/constants.ts";
 import { saveItemInLocalStorage } from "../../utils/storage";
 import { Contact } from "../../types/Contact";
 
@@ -29,12 +29,9 @@ describe("ContactManager", () => {
   it("renders with contacts", () => {
     render(<ContactManager contacts={mockContacts} setContacts={vi.fn()} />);
     expect(
-      screen.getByText((_content, element) => {
-        return (
-          element?.textContent ===
-          "mock_name mock_last_name (mock_country) - mock_email@mock.com"
-        );
-      }),
+      screen.getByText(
+        "mock_name mock_last_name (mock_country) - mock_email@mock.com",
+      ),
     ).toBeInTheDocument();
   });
 
