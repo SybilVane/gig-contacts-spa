@@ -2,7 +2,7 @@
   "name": "gig-contacts-spa",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://SybilVane.github.io/git-contacts-spa/",
+  "homepage": "https://sybilvane.github.io/git-contacts-spa/",
   "type": "module",
   "scripts": {
     "dev": "vite",

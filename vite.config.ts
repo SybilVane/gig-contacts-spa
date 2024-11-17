@@ -13,5 +13,5 @@ export default defineConfig({
     css: true,
     setupFiles: "./src/test/setup.ts",
   },
-  base: "/git-contacts-spa/dist/",
+  base: "https://sybilvane.github.io/git-contacts-spa/",
 });
