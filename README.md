@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# Gig Contacts SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Gig Contacts SPA is a single-page application for managing contacts. It allows users to add, edit, and delete contacts,
+and stores the contact information in the browser's local storage.
 
-Currently, two official plugins are available:
+### Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Node.js `22.11.0`
 
-## Expanding the ESLint configuration
+pnpm `9.13.2`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+To install the project dependencies, run:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+pnpm install frozen-lockfile
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Usage
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+To start the development server, run:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+pnpm dev
 ```
+
+This will start the development server at [http://localhost:5173](http://localhost:5173).
+
+## Testing
+
+To run the tests, run:
+
+```bash
+pnpm test
+```
+
+run the tests with coverage, run:
+
+```bash
+pnpm test:coverage
+```
+
+The tests are written using `@testing-library/react` and vitest.
+
