@@ -5,7 +5,7 @@ and stores the contact information in the browser's local storage.
 
 ### Requirements
 
-Node.js `22.11.0`
+Node.js `20.18.0`
 
 pnpm `9.13.2`
 
