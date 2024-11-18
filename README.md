@@ -3,6 +3,9 @@
 Gig Contacts SPA is a single-page application for managing contacts. It allows users to add, edit, and delete contacts,
 and stores the contact information in the browser's local storage.
 
+You can see a live demo of the application here:
+[https://gig-contacts-spa.vercel.app/](https://gig-contacts-spa.vercel.app/)
+
 ### Requirements
 
 Node.js `20.18.0`
