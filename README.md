@@ -11,7 +11,14 @@ pnpm `9.13.2`
 
 ## Installation
 
-To install the project dependencies, run:
+To install the project dependencies install pnpm (more info [here](https://pnpm.io/installation)):
+
+
+```bash
+npm install -g pnpm
+```
+
+Then install the project dependencies:
 
 ```bash
 pnpm install --frozen-lockfile
