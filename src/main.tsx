@@ -6,7 +6,7 @@ import "../index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename="/gig-contacts-spa">
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </StrictMode>,

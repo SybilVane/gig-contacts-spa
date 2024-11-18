@@ -14,7 +14,7 @@ pnpm `9.13.2`
 To install the project dependencies, run:
 
 ```bash
-pnpm install frozen-lockfile
+pnpm install --frozen-lockfile
 ```
 
 ## Usage

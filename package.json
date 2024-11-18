@@ -2,7 +2,6 @@
   "name": "gig-contacts-spa",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://sybilvane.github.io/git-contacts-spa/",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,9 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d dist"
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "country-list": "^2.3.0",
@@ -34,7 +31,6 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
-    "gh-pages": "^6.2.0",
     "globals": "^15.11.0",
     "jsdom": "^25.0.1",
     "prettier": "^3.3.3",
